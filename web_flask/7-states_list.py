@@ -23,6 +23,13 @@ def hello():
     return render_template('7-states_list.html', states=sorted_states)
 
 
+@app.teardown_appcontext
+def close_db(error):
+    """
+    Remove the current SQLAlchemy session
+    """
+    storage.close()
+
 if __name__ == '__main__':
     """
     Runs when this script is not imported

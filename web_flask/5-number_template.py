@@ -2,7 +2,7 @@
 """
 A script that starts a Flask web application
 """
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -46,6 +46,14 @@ def is_number(n):
     Return whether <n> is a number
     """
     return "{:d} is a number".format(n)
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n):
+    """
+    Return the template with <n> variable
+    """
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == '__main__':

@@ -4,8 +4,8 @@ A script that starts a Flask web application
 """
 from flask import Flask
 
-
 app = Flask(__name__)
+
 
 @app.route('/', strict_slashes=False)
 def hello():
@@ -13,6 +13,7 @@ def hello():
     Returns a text to the client
     """
     return "Hello HBNB!"
+
 
 if __name__ == '__main__':
     """

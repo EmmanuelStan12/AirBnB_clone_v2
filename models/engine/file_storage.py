@@ -63,3 +63,9 @@ class FileStorage:
         if obj == None:
             return
         del self.__objects[obj.to_dict()['__class__'] + '.' + obj.id]
+
+    def close(self):
+        """
+        Call the reload() method for deserializing the file to objects
+        """
+        self.reload()
